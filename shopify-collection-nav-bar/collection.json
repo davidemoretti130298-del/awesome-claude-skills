@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "scheme-d605791f-fc47-4d14-a026-6fd41f736a1b",
+        "image": "shopify://shop_images/Progetto_a69504a9-afeb-412c-92fc-ac779cd3d1dd.webp",
+        "mobile_image": "shopify://shop_images/Progetto_a69504a9-afeb-412c-92fc-ac779cd3d1dd.webp",
+        "image_size": "auto",
+        "allow_transparent_header": true,
+        "show_image": false,
+        "reveal": false,
+        "enable_parallax": true,
+        "show_collection_title": false,
+        "show_collection_description": false,
+        "show_breadcrumb": false,
+        "content_width": "xs",
+        "overlay_color": "#000000",
+        "overlay_opacity": 39
+      }
+    },
+    "collection-nav-bar": {
+      "type": "collection-nav-bar",
+      "blocks": {
+        "link_bottoms": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "pantaloni-lunghi",
+            "label": "BOTTOMS"
+          }
+        },
+        "link_knitwear": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "hoodies-sweatshirts",
+            "label": "KNITWEAR & HOODIES"
+          }
+        },
+        "link_shirts": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "shirt",
+            "label": "SHIRTS"
+          }
+        },
+        "link_caps": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "cap",
+            "label": "CAPS"
+          }
+        },
+        "link_jackets": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "jackets",
+            "label": "JACKETS"
+          }
+        },
+        "link_tees": {
+          "type": "collection_link",
+          "settings": {
+            "collection": "tops",
+            "label": "TEES"
+          }
+        }
+      },
+      "block_order": [
+        "link_bottoms",
+        "link_knitwear",
+        "link_shirts",
+        "link_caps",
+        "link_jackets",
+        "link_tees"
+      ]
+    },
+    "image_with_text_3UHGWX": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_igT3Nr": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>The art of dreams - part 1.</strong>",
+            "heading_tag": "h6"
+          }
+        },
+        "richtext_eRc9Lm": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>La prima non si scorda mai. In un'epoca in cui l'abbigliamento di lusso è stato svuotato e trasformato in status con una qualità non all'altezza del prezzo, crediamo e realizziamo capi che gridano nuovo lusso, quello moderno, consapevole di una qualità che si tocca con mano.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_igT3Nr",
+        "richtext_eRc9Lm"
+      ],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Progetto_a69504a9-afeb-412c-92fc-ac779cd3d1dd.webp",
+        "mobile_image": "shopify://shop_images/Foto-25_2.webp",
+        "reveal_on_scroll": true,
+        "image_position": "start",
+        "content_width": "sm",
+        "remove_vertical_spacing": false
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "color_scheme": "",
+        "hide_product_information": false,
+        "products_per_page": 30,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": true,
+        "horizontal_spacing_factor": 0.5,
+        "vertical_spacing_factor": 1,
+        "filter_layout": "sidebar",
+        "quick_links_menu": "",
+        "show_sort_by": false,
+        "show_filters": false,
+        "show_results_count": false,
+        "show_filter_group_name": false,
+        "show_filter_values_count": false,
+        "open_filters_by_default": false
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "collection-nav-bar",
+    "image_with_text_3UHGWX",
+    "main"
+  ]
+}

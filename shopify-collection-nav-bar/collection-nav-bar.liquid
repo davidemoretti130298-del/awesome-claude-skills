@@ -1,0 +1,137 @@
+{%- comment -%}
+  Collection Navigation Bar
+  Scrollable horizontal pill-navigation that lists all configured collections.
+  The current collection pill is highlighted automatically via collection.handle.
+  Place this section at the top of templates/collection.json (after the banner).
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: var(--header-height, var(--header-desktop-height, 0px));
+      z-index: 20;
+      background-color: rgb(var(--color-background));
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    }
+
+    .collection-nav-bar {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .collection-nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .collection-nav-bar__inner {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1.2rem 2rem;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    .collection-nav-bar__item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.4rem;
+      border-radius: 10rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      color: rgb(var(--color-foreground));
+      border: 0.1rem solid rgba(var(--color-foreground), 0.25);
+      background-color: transparent;
+    }
+
+    .collection-nav-bar__item:hover {
+      background-color: rgba(var(--color-foreground), 0.06);
+      border-color: rgba(var(--color-foreground), 0.5);
+    }
+
+    .collection-nav-bar__item--active {
+      background-color: rgb(var(--color-foreground));
+      color: rgb(var(--color-background));
+      border-color: rgb(var(--color-foreground));
+    }
+
+    @media (max-width: 749px) {
+      .collection-nav-bar__inner {
+        padding: 1rem 1.5rem;
+      }
+
+      .collection-nav-bar__item {
+        font-size: 1rem;
+        padding: 0.5rem 1.1rem;
+      }
+    }
+  </style>
+
+  <nav class="collection-nav-bar" aria-label="{{ 'sections.collection_nav_bar.aria_label' | t: default: 'Collections' }}">
+    <div class="collection-nav-bar__inner">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.collection != blank -%}
+          {%- assign block_collection = block.settings.collection -%}
+          {%- assign is_active = false -%}
+          {%- if collection.handle == block_collection.handle -%}
+            {%- assign is_active = true -%}
+          {%- endif -%}
+
+          <a
+            href="{{ block_collection.url }}"
+            class="collection-nav-bar__item{% if is_active %} collection-nav-bar__item--active{% endif %}"
+            {% if is_active %}aria-current="page"{% endif %}
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.label != blank -%}
+              {{- block.settings.label -}}
+            {%- else -%}
+              {{- block_collection.title -}}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </nav>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Nav Bar",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection_link",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Custom label",
+          "info": "Leave empty to use the collection title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Nav Bar"
+    }
+  ]
+}
+{% endschema %}
