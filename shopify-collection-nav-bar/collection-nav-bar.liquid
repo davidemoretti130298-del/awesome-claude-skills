@@ -1,11 +1,18 @@
 {%- comment -%}
   Collection Navigation Bar
-  Scrollable horizontal pill-navigation that lists all configured collections.
-  The current collection pill is highlighted automatically via collection.handle.
-  Place this section at the top of templates/collection.json (after the banner).
+  Reads links from a Shopify navigation menu and renders them as a
+  horizontally-scrollable pill bar. The pill matching the current
+  collection is highlighted automatically via collection.handle.
+
+  Setup:
+  1. Go to Shopify Admin > Online Store > Navigation
+  2. Create a menu (e.g. "Collection Nav") with links to each collection
+  3. In the Theme Editor, select that menu in the section settings
 {%- endcomment -%}
 
-{%- if section.blocks.size > 0 -%}
+{%- assign nav_menu = linklists[section.settings.menu] -%}
+
+{%- if nav_menu.links.size > 0 -%}
   <style>
     #shopify-section-{{ section.id }} {
       position: sticky;
@@ -75,29 +82,21 @@
     }
   </style>
 
-  <nav class="collection-nav-bar" aria-label="{{ 'sections.collection_nav_bar.aria_label' | t: default: 'Collections' }}">
+  <nav class="collection-nav-bar" aria-label="Collections">
     <div class="collection-nav-bar__inner">
-      {%- for block in section.blocks -%}
-        {%- if block.settings.collection != blank -%}
-          {%- assign block_collection = block.settings.collection -%}
-          {%- assign is_active = false -%}
-          {%- if collection.handle == block_collection.handle -%}
-            {%- assign is_active = true -%}
-          {%- endif -%}
-
-          <a
-            href="{{ block_collection.url }}"
-            class="collection-nav-bar__item{% if is_active %} collection-nav-bar__item--active{% endif %}"
-            {% if is_active %}aria-current="page"{% endif %}
-            {{ block.shopify_attributes }}
-          >
-            {%- if block.settings.label != blank -%}
-              {{- block.settings.label -}}
-            {%- else -%}
-              {{- block_collection.title -}}
-            {%- endif -%}
-          </a>
+      {%- for link in nav_menu.links -%}
+        {%- assign is_active = false -%}
+        {%- if link.object.handle == collection.handle -%}
+          {%- assign is_active = true -%}
         {%- endif -%}
+
+        <a
+          href="{{ link.url }}"
+          class="collection-nav-bar__item{% if is_active %} collection-nav-bar__item--active{% endif %}"
+          {% if is_active %}aria-current="page"{% endif %}
+        >
+          {{- link.title -}}
+        </a>
       {%- endfor -%}
     </div>
   </nav>
@@ -108,24 +107,12 @@
   "name": "Collection Nav Bar",
   "tag": "section",
   "class": "section",
-  "settings": [],
-  "blocks": [
+  "settings": [
     {
-      "type": "collection_link",
-      "name": "Collection",
-      "settings": [
-        {
-          "type": "collection",
-          "id": "collection",
-          "label": "Collection"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Custom label",
-          "info": "Leave empty to use the collection title"
-        }
-      ]
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "Create a menu in Shopify Admin > Navigation with links to your collections"
     }
   ],
   "presets": [

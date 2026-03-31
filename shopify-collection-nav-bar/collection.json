@@ -21,58 +21,9 @@
     },
     "collection-nav-bar": {
       "type": "collection-nav-bar",
-      "blocks": {
-        "link_bottoms": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "pantaloni-lunghi",
-            "label": "BOTTOMS"
-          }
-        },
-        "link_knitwear": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "hoodies-sweatshirts",
-            "label": "KNITWEAR & HOODIES"
-          }
-        },
-        "link_shirts": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "shirt",
-            "label": "SHIRTS"
-          }
-        },
-        "link_caps": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "cap",
-            "label": "CAPS"
-          }
-        },
-        "link_jackets": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "jackets",
-            "label": "JACKETS"
-          }
-        },
-        "link_tees": {
-          "type": "collection_link",
-          "settings": {
-            "collection": "tops",
-            "label": "TEES"
-          }
-        }
-      },
-      "block_order": [
-        "link_bottoms",
-        "link_knitwear",
-        "link_shirts",
-        "link_caps",
-        "link_jackets",
-        "link_tees"
-      ]
+      "settings": {
+        "menu": "collection-nav"
+      }
     },
     "image_with_text_3UHGWX": {
       "type": "image-with-text",
