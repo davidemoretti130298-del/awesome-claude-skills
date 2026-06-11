@@ -589,9 +589,19 @@
     }
 
     .benefit-icon {
-      font-size: 24px;
-      margin-bottom: 16px;
-      opacity: 0.8;
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 16px;
+    }
+
+    .benefit-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-black);
+      fill: none;
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .benefit-item h3 {
@@ -875,22 +885,30 @@
 
     <div class="benefits-grid">
       <div class="benefit-item">
-        <div class="benefit-icon">&#9889;</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
         <h3>Early Access to All Drops</h3>
         <p>un'ora prima di tutti. ogni drop, ogni capsule.</p>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">&#128065;</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
         <h3>First Look Previews</h3>
         <p>vedi le nuove collezioni prima che escano. bts content, fitting, mood.</p>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">&#127873;</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
         <h3>Coupons & Gifts</h3>
         <p>sconti esclusivi e surprise gifts durante l'anno.</p>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">&#127909;</div>
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
         <h3>BTS Content</h3>
         <p>dietro le quinte di ogni collezione. dal concept al capo finito.</p>
       </div>
