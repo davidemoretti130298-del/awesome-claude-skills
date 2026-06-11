@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Early Access | Anima Studios</title>
+  <title>Sapore di Sale — Summer Capsule 26 | Anima Studios</title>
   <meta name="description" content="Entra nella family. Early access alla capsule Sapore di Sale — Anima Studios. The Art of Dreams. Made in Italy.">
 
-  <!-- Fonts: matching Anima Studios brand -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Klaviyo Script -->
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Rqt3UD"></script>
 
   <style>
@@ -25,16 +23,16 @@
       --color-black: #1a1a1a;
       --color-white: #ffffff;
       --color-off-white: #f7f5f2;
+      --color-cream: #f0ebe3;
       --color-warm-gray: #b8b0a6;
       --color-dark-gray: #3d3a37;
       --color-accent: #8a7d6b;
+      --color-sand: #c4b59d;
       --font-heading: 'Cormorant', serif;
       --font-body: 'Montserrat', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
@@ -98,8 +96,83 @@
       transition: opacity 0.3s ease;
     }
 
-    .navbar-links a:hover {
-      opacity: 0.7;
+    .navbar-links a:hover { opacity: 0.7; }
+
+    /* ── Sticky Countdown ── */
+    .countdown-bar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--color-black);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .countdown-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-warm-gray);
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 20px;
+    }
+
+    .countdown-unit {
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .countdown-unit-label {
+      font-family: var(--font-body);
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-warm-gray);
+      margin-top: 4px;
+    }
+
+    .countdown-separator {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      line-height: 1;
+    }
+
+    .countdown-cta {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-black);
+      background: var(--color-white);
+      border: none;
+      padding: 8px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .countdown-cta:hover {
+      background: var(--color-sand);
     }
 
     /* ── Hero Section ── */
@@ -114,66 +187,150 @@
       overflow: hidden;
     }
 
-    .hero-bg {
+    .hero-slideshow {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        var(--color-black) 0%,
-        #2a2520 40%,
-        #3d3530 70%,
-        var(--color-dark-gray) 100%
-      );
       z-index: 0;
     }
 
-    .hero-bg::after {
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-slide.active { opacity: 1; }
+
+    .hero-slide::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(138, 125, 107, 0.15) 0%, transparent 70%);
+      background: linear-gradient(
+        180deg,
+        rgba(26, 26, 26, 0.55) 0%,
+        rgba(26, 26, 26, 0.35) 40%,
+        rgba(26, 26, 26, 0.55) 100%
+      );
     }
 
     .hero-content {
       position: relative;
       z-index: 10;
-      max-width: 680px;
+      max-width: 720px;
       padding: 0 24px;
     }
 
-    .hero-eyebrow {
+    .hero-capsule-label {
       font-family: var(--font-body);
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--color-warm-gray);
-      margin-bottom: 24px;
+      color: var(--color-sand);
+      margin-bottom: 20px;
     }
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 400;
-      line-height: 1.1;
+      font-style: italic;
+      line-height: 1.05;
       color: var(--color-white);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       letter-spacing: 0.02em;
     }
 
-    .hero-title em {
-      font-style: italic;
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 12px;
       font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 40px;
     }
 
-    .hero-subtitle {
+    .hero-drop-info {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 300;
       line-height: 1.8;
       color: var(--color-warm-gray);
-      margin-bottom: 48px;
-      letter-spacing: 0.04em;
+      margin-bottom: 40px;
+    }
+
+    .hero-drop-info strong {
+      color: var(--color-white);
+      font-weight: 500;
+    }
+
+    /* ── CTA Buttons ── */
+    .btn-cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-black);
+      background: var(--color-white);
+      border: 1px solid var(--color-white);
+      padding: 16px 48px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background: transparent;
+      color: var(--color-white);
+    }
+
+    .btn-cta-dark {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: var(--color-black);
+      border: 1px solid var(--color-black);
+      padding: 16px 48px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn-cta-dark:hover {
+      background: transparent;
+      color: var(--color-black);
+    }
+
+    .btn-outline-light {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 16px 48px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .btn-outline-light:hover {
+      background: var(--color-white);
+      color: var(--color-black);
+      border-color: var(--color-white);
     }
 
     .hero-scroll {
@@ -198,47 +355,219 @@
       50% { opacity: 1; transform: scaleY(1.2); }
     }
 
-    /* ── CTA Button ── */
-    .btn-outline {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      padding: 16px 48px;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      cursor: pointer;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: var(--color-white);
-      color: var(--color-black);
-      border-color: var(--color-white);
-    }
-
-    /* ── Value Proposition ── */
-    .value-section {
-      padding: 120px 48px;
+    /* ── Mood Section ── */
+    .mood-section {
+      padding: 0;
       background: var(--color-off-white);
-      text-align: center;
     }
 
-    .value-section .section-eyebrow {
+    .mood-text-block {
+      text-align: center;
+      padding: 100px 48px 60px;
+    }
+
+    .mood-text-block .eyebrow {
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .mood-text-block h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-black);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .mood-text-block p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-dark-gray);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Mood Gallery — editorial asymmetric layout */
+    .mood-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 3px;
+      padding: 0 3px 3px;
+    }
+
+    .mood-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mood-cell {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mood-cell-tall {
+      grid-row: span 2;
+    }
+
+    .mood-cell-wide {
+      grid-column: span 2;
+    }
+
+    .mood-cell .mood-img {
+      transition: transform 6s ease;
+    }
+
+    .mood-cell:hover .mood-img {
+      transform: scale(1.03);
+    }
+
+    /* Placeholder for images before Shopify upload */
+    .mood-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-warm-gray);
+    }
+
+    .mood-cell:nth-child(1) .mood-placeholder { background: #d4c5b3; min-height: 600px; }
+    .mood-cell:nth-child(2) .mood-placeholder { background: #c8d8e8; }
+    .mood-cell:nth-child(3) .mood-placeholder { background: #2a2a2a; color: #666; }
+    .mood-cell:nth-child(4) .mood-placeholder { background: #8ea8c4; }
+    .mood-cell:nth-child(5) .mood-placeholder { background: #a4c4d8; min-height: 400px; }
+
+    .mood-cta-block {
+      text-align: center;
+      padding: 60px 48px 100px;
+    }
+
+    /* ── Drop Info Section ── */
+    .drop-section {
+      padding: 120px 48px;
+      background: var(--color-black);
+      text-align: center;
+      position: relative;
+    }
+
+    .drop-section .eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-warm-gray);
       margin-bottom: 24px;
     }
 
-    .value-section h2 {
+    .drop-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+      color: var(--color-white);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    .drop-timeline {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin-bottom: 56px;
+    }
+
+    .drop-time {
+      text-align: center;
+    }
+
+    .drop-time-hour {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--color-white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .drop-time-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-warm-gray);
+    }
+
+    .drop-time-sub {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--color-sand);
+      margin-top: 4px;
+    }
+
+    .drop-divider {
+      width: 1px;
+      height: 80px;
+      background: rgba(255,255,255,0.15);
+      align-self: center;
+    }
+
+    .drop-section .section-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--color-warm-gray);
+      max-width: 480px;
+      margin: 0 auto 48px;
+    }
+
+    .drop-note {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(184, 176, 166, 0.5);
+      margin-top: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Family Benefits ── */
+    .benefits-section {
+      padding: 120px 48px;
+      background: var(--color-cream);
+      text-align: center;
+    }
+
+    .benefits-section .eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .benefits-section h2 {
       font-family: var(--font-heading);
       font-size: clamp(1.8rem, 3vw, 2.8rem);
       font-weight: 400;
@@ -247,229 +576,40 @@
       line-height: 1.2;
     }
 
-    .value-grid {
+    .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .value-item {
-      text-align: center;
-    }
-
-    .value-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 20px;
-      border: 1px solid var(--color-warm-gray);
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .value-icon svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--color-dark-gray);
-      fill: none;
-      stroke-width: 1.5;
-    }
-
-    .value-item h3 {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-black);
-      margin-bottom: 12px;
-    }
-
-    .value-item p {
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--color-dark-gray);
-    }
-
-    /* ── Signup Section ── */
-    .signup-section {
-      padding: 120px 48px;
-      background: var(--color-black);
-      text-align: center;
-    }
-
-    .signup-section .section-eyebrow {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-      margin-bottom: 24px;
-    }
-
-    .signup-section h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 400;
-      color: var(--color-white);
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .signup-section .section-desc {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--color-warm-gray);
-      max-width: 520px;
-      margin: 0 auto 48px;
-      letter-spacing: 0.02em;
-    }
-
-    /* Klaviyo trigger button */
-    .klaviyo-trigger-btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 18px 56px;
-      background: var(--color-white);
-      color: var(--color-black);
-      border: 1px solid var(--color-white);
-      cursor: pointer;
-      transition: all 0.4s ease;
-    }
-
-    .klaviyo-trigger-btn:hover {
-      background: transparent;
-      color: var(--color-white);
-    }
-
-    .fallback-form button {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 16px 48px;
-      background: var(--color-white);
-      color: var(--color-black);
-      border: 1px solid var(--color-white);
-      cursor: pointer;
-      transition: all 0.4s ease;
-    }
-
-    .fallback-form button:hover {
-      background: transparent;
-      color: var(--color-white);
-    }
-
-    .signup-note {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 300;
-      color: rgba(184, 176, 166, 0.6);
-      margin-top: 24px;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Collection Preview ── */
-    .preview-section {
-      padding: 120px 48px;
-      background: var(--color-white);
-      text-align: center;
-    }
-
-    .preview-section .section-eyebrow {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 24px;
-    }
-
-    .preview-section h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--color-black);
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .preview-section .section-desc {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--color-dark-gray);
-      max-width: 560px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1000px;
       margin: 0 auto 56px;
     }
 
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      max-width: 1080px;
-      margin: 0 auto;
+    .benefit-item {
+      text-align: center;
     }
 
-    .preview-item {
-      position: relative;
-      aspect-ratio: 3/4;
-      background: var(--color-off-white);
-      overflow: hidden;
+    .benefit-icon {
+      font-size: 24px;
+      margin-bottom: 16px;
+      opacity: 0.8;
     }
 
-    .preview-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(26, 26, 26, 0.4) 100%);
-    }
-
-    .preview-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-    }
-
-    .preview-placeholder span {
+    .benefit-item h3 {
       font-family: var(--font-body);
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--color-black);
+      margin-bottom: 8px;
+    }
+
+    .benefit-item p {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.7;
       color: var(--color-dark-gray);
-    }
-
-    .preview-label {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      z-index: 10;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-white);
     }
 
     /* ── Footer ── */
@@ -516,9 +656,7 @@
       transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
-      color: var(--color-white);
-    }
+    .footer-links a:hover { color: var(--color-white); }
 
     .footer-copy {
       font-family: var(--font-body);
@@ -530,38 +668,52 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .navbar {
-        padding: 16px 24px;
+      .navbar { padding: 16px 24px; }
+      .navbar-links { display: none; }
+
+      .countdown-bar {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 16px;
       }
 
-      .navbar-links {
-        display: none;
-      }
+      .countdown-label { font-size: 8px; width: 100%; }
+      .countdown-timer { gap: 12px; }
+      .countdown-number { font-size: 14px; }
+      .countdown-cta { padding: 6px 16px; font-size: 8px; }
 
-      .value-section,
-      .signup-section,
-      .preview-section {
-        padding: 80px 24px;
+      .mood-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
       }
+      .mood-cell-tall { grid-row: span 1; }
+      .mood-cell-wide { grid-column: span 2; }
+      .mood-cell:nth-child(1) .mood-placeholder { min-height: 350px; }
 
-      .value-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
+      .mood-text-block,
+      .mood-cta-block { padding-left: 24px; padding-right: 24px; }
 
-      .preview-grid {
-        grid-template-columns: 1fr;
-        gap: 2px;
-      }
+      .drop-section,
+      .benefits-section { padding: 80px 24px; }
 
-      .hero-content {
-        padding: 0 20px;
-      }
-
-      .footer-links {
+      .drop-timeline {
         flex-direction: column;
-        gap: 16px;
+        gap: 32px;
+        align-items: center;
       }
+
+      .drop-divider {
+        width: 40px;
+        height: 1px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .hero-content { padding: 0 20px; }
+      .footer-links { flex-direction: column; gap: 16px; }
     }
   </style>
 </head>
@@ -570,6 +722,33 @@
   <!-- Announcement Bar -->
   <div class="announcement-bar">
     "Sapore di Sale" drops June 16 — Early Access for Members at 6PM
+  </div>
+
+  <!-- Sticky Countdown -->
+  <div class="countdown-bar">
+    <span class="countdown-label">Drop in</span>
+    <div class="countdown-timer">
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-days">--</div>
+        <div class="countdown-unit-label">Days</div>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-hours">--</div>
+        <div class="countdown-unit-label">Hours</div>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-mins">--</div>
+        <div class="countdown-unit-label">Mins</div>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-secs">--</div>
+        <div class="countdown-unit-label">Secs</div>
+      </div>
+    </div>
+    <button class="countdown-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
   </div>
 
   <!-- Navigation -->
@@ -583,95 +762,141 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero with background slideshow -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-slideshow">
+      <!--
+        ISTRUZIONI: Sostituisci i URL sotto con le immagini caricate su Shopify CDN.
+        Usa Settings > Files per caricarle e copia l'URL.
+        Slide 1: foto camicia fiori (flower shirt back)
+        Slide 2: foto spiaggia dolce vita
+      -->
+      <div class="hero-slide active" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_CAMICIA_FIORI');"></div>
+      <div class="hero-slide" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_SPIAGGIA');"></div>
+    </div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">Summer Capsule 26</p>
+      <p class="hero-capsule-label">Summer Capsule 26</p>
       <h1 class="hero-title">"Sapore di Sale"</h1>
-      <p class="hero-subtitle">
-        il drop è il 16 giugno. i family members entrano alle 18:00.<br>
-        tutti gli altri alle 19:00. you know the vibes.
+      <p class="hero-sub">Anima Studios — The Art of Dreams</p>
+      <p class="hero-drop-info">
+        il drop è <strong>martedì 16 giugno</strong>.<br>
+        family members alle <strong>18:00</strong> — tutti gli altri alle 19:00.
       </p>
-      <button class="btn-outline klaviyo_form_trigger_hero" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Become a Member</button>
+      <button class="btn-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
     </div>
     <div class="hero-scroll"><span></span></div>
   </section>
 
-  <!-- Value Proposition -->
-  <section class="value-section">
-    <p class="section-eyebrow">Why Join the Family</p>
+  <!-- Mood Section -->
+  <section class="mood-section">
+    <div class="mood-text-block">
+      <p class="eyebrow">The Mood</p>
+      <h2>estate italiana, vibes mediterranee</h2>
+      <p>lino, denim, sole e sale sulla pelle. questa capsule è un viaggio — dal porto alla piazzetta, dal tramonto alla notte. made in italy, obviously.</p>
+    </div>
+
+    <!--
+      MOOD GALLERY — ISTRUZIONI PER LE IMMAGINI:
+      Carica le foto su Shopify (Settings > Files) e sostituisci i placeholder.
+      Layout: 5 celle con disposizione editoriale asimmetrica.
+
+      Cella 1 (alta, a sinistra): foto spiaggia dolce vita
+      Cella 2: camicia lino brown (close-up ricamo Anima Studios)
+      Cella 3: jeans nero (close-up tasca)
+      Cella 4: jeans chiaro (retro con etichetta Anima Studios)
+      Cella 5 (larga): camicia fiori "Love Therapy" (back shot con fiori)
+    -->
+    <div class="mood-gallery">
+      <div class="mood-cell mood-cell-tall">
+        <!-- Foto spiaggia dolce vita -->
+        <div class="mood-placeholder">spiaggia dolce vita</div>
+        <!-- <img src="URL_SHOPIFY" alt="Italian summer beach" class="mood-img"> -->
+      </div>
+      <div class="mood-cell">
+        <!-- Camicia lino brown close-up -->
+        <div class="mood-placeholder">lino brown</div>
+        <!-- <img src="URL_SHOPIFY" alt="Linen shirt detail" class="mood-img"> -->
+      </div>
+      <div class="mood-cell">
+        <!-- Jeans nero close-up -->
+        <div class="mood-placeholder">denim nero</div>
+        <!-- <img src="URL_SHOPIFY" alt="Black denim detail" class="mood-img"> -->
+      </div>
+      <div class="mood-cell">
+        <!-- Jeans chiaro retro -->
+        <div class="mood-placeholder">denim chiaro</div>
+        <!-- <img src="URL_SHOPIFY" alt="Light denim back" class="mood-img"> -->
+      </div>
+      <div class="mood-cell mood-cell-wide">
+        <!-- Camicia fiori Love Therapy -->
+        <div class="mood-placeholder">flower therapy shirt</div>
+        <!-- <img src="URL_SHOPIFY" alt="Flower Therapy shirt back" class="mood-img"> -->
+      </div>
+    </div>
+
+    <div class="mood-cta-block">
+      <button class="btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+    </div>
+  </section>
+
+  <!-- Drop Info Section -->
+  <section class="drop-section">
+    <p class="eyebrow">Martedì 16 Giugno 2026</p>
+    <h2>il drop</h2>
+
+    <div class="drop-timeline">
+      <div class="drop-time">
+        <div class="drop-time-hour">18:00</div>
+        <div class="drop-time-label">Family Members</div>
+        <div class="drop-time-sub">early access — 1 ora prima</div>
+      </div>
+      <div class="drop-divider"></div>
+      <div class="drop-time">
+        <div class="drop-time-hour">19:00</div>
+        <div class="drop-time-label">Everyone Else</div>
+        <div class="drop-time-sub">general access</div>
+      </div>
+    </div>
+
+    <p class="section-desc">
+      pezzi limitati, una volta sold out non tornano.<br>
+      entra nella family per accedere un'ora prima. it's that simple.
+    </p>
+
+    <button class="btn-outline-light" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+    <p class="drop-note">zero spam. solo cose che contano fr.</p>
+  </section>
+
+  <!-- Family Benefits -->
+  <section class="benefits-section">
+    <p class="eyebrow">Why Join the Family</p>
     <h2>family members get early access — and that's not all</h2>
-    <div class="value-grid">
-      <div class="value-item">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">&#9889;</div>
         <h3>Early Access to All Drops</h3>
-        <p>un'ora prima di tutti. ogni drop, ogni capsule. first come first served, no stress.</p>
+        <p>un'ora prima di tutti. ogni drop, ogni capsule.</p>
       </div>
-      <div class="value-item">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <h3>First Look Collection Previews</h3>
-        <p>vedi le nuove collezioni prima che escano. behind the scenes, fitting, mood — tutto.</p>
+      <div class="benefit-item">
+        <div class="benefit-icon">&#128065;</div>
+        <h3>First Look Previews</h3>
+        <p>vedi le nuove collezioni prima che escano. bts content, fitting, mood.</p>
       </div>
-      <div class="value-item">
-        <div class="value-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-        </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">&#127873;</div>
         <h3>Coupons & Gifts</h3>
-        <p>sconti esclusivi e surprise gifts durante l'anno. perché la family si tratta bene.</p>
+        <p>sconti esclusivi e surprise gifts durante l'anno.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">&#127909;</div>
+        <h3>BTS Content</h3>
+        <p>dietro le quinte di ogni collezione. dal concept al capo finito.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Collection Preview -->
-  <section class="preview-section">
-    <p class="section-eyebrow">Drop — Martedì 16 Giugno</p>
-    <h2>"Sapore di Sale"</h2>
-    <p class="section-desc">
-      summer capsule 26. pezzi limitati, vibes mediterranee, made in italy come sempre.<br>
-      members ore 18:00 — tutti gli altri ore 19:00. don't sleep on it.
-    </p>
-    <div class="preview-grid">
-      <div class="preview-item">
-        <div class="preview-placeholder"><span>Pants</span></div>
-        <span class="preview-label">Pants</span>
-      </div>
-      <div class="preview-item">
-        <div class="preview-placeholder"><span>Tees</span></div>
-        <span class="preview-label">Tees</span>
-      </div>
-      <div class="preview-item">
-        <div class="preview-placeholder"><span>Shirts</span></div>
-        <span class="preview-label">Shirts</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Signup Section -->
-  <section class="signup-section" id="signup">
-    <p class="section-eyebrow">Join the Family</p>
-    <h2>non restare fuori</h2>
-    <p class="section-desc">
-      entra nella family e accedi a "Sapore di Sale" un'ora prima di tutti.<br>
-      plus: previews, bts content, sconti e surprise gifts durante l'anno.
-    </p>
-
-    <!-- Klaviyo Popup Trigger Button -->
-    <button class="klaviyo_form_trigger klaviyo-trigger-btn">Become a Member</button>
-
-    <!-- Klaviyo trigger script: opens the form as popup on click -->
-    <script type="text/javascript">
-      document.querySelector('.klaviyo_form_trigger').addEventListener('click', function() {
-        window._klOnsite = window._klOnsite || [];
-        window._klOnsite.push(['openForm', 'Rqt3UD']);
-      });
-    </script>
-
-    <p class="signup-note">zero spam. solo cose che contano fr.</p>
+    <button class="btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
   </section>
 
   <!-- Footer -->
@@ -686,6 +911,51 @@
     </div>
     <p class="footer-copy">&copy; 2026 Anima Studios. All rights reserved.</p>
   </footer>
+
+  <!-- Countdown + Slideshow Scripts -->
+  <script>
+    // Countdown to June 16, 2026 18:00 CEST (UTC+2)
+    const dropDate = new Date('2026-06-16T16:00:00Z'); // 18:00 CEST = 16:00 UTC
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = dropDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent = '00';
+        document.getElementById('cd-secs').textContent = '00';
+        document.querySelector('.countdown-label').textContent = 'Live Now';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 5000);
+    }
+  </script>
 
 </body>
 </html>
