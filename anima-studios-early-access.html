@@ -355,18 +355,74 @@
       50% { opacity: 1; transform: scaleY(1.2); }
     }
 
-    /* ── Mood Section ── */
-    .mood-section {
-      padding: 0;
+    /* ── Capsule Story Section ── */
+    .story-section {
+      padding: 120px 48px;
+      background: var(--color-white);
+    }
+
+    .story-container {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .story-container .eyebrow {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 28px;
+    }
+
+    .story-container h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-black);
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    .story-body {
+      text-align: left;
+    }
+
+    .story-body p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--color-dark-gray);
+      margin-bottom: 24px;
+    }
+
+    .story-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-warm-gray);
+      margin: 48px auto;
+    }
+
+    /* ── Fabric Palette ── */
+    .palette-section {
+      padding: 100px 48px;
       background: var(--color-off-white);
     }
 
-    .mood-text-block {
+    .palette-header {
       text-align: center;
-      padding: 100px 48px 60px;
+      margin-bottom: 64px;
     }
 
-    .mood-text-block .eyebrow {
+    .palette-header .eyebrow {
       font-family: var(--font-body);
       font-size: 10px;
       font-weight: 500;
@@ -376,88 +432,127 @@
       margin-bottom: 20px;
     }
 
-    .mood-text-block h2 {
+    .palette-header h2 {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
       font-weight: 400;
-      font-style: italic;
       color: var(--color-black);
-      margin-bottom: 16px;
       line-height: 1.2;
     }
 
-    .mood-text-block p {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--color-dark-gray);
-      max-width: 520px;
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0;
+      max-width: 980px;
       margin: 0 auto;
     }
 
-    /* Mood Gallery — editorial asymmetric layout */
-    .mood-gallery {
+    .palette-swatch {
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .palette-swatch-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    .palette-swatch:hover .palette-swatch-inner {
+      transform: scale(1.05);
+    }
+
+    .palette-swatch-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 8px;
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .palette-swatch:hover .palette-swatch-label {
+      opacity: 1;
+    }
+
+    .palette-note {
+      text-align: center;
+      margin-top: 40px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-warm-gray);
+      font-style: italic;
+    }
+
+    /* ── Gallery ── */
+    .gallery-section {
+      padding: 0;
+    }
+
+    .gallery-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto;
-      gap: 3px;
-      padding: 0 3px 3px;
+      gap: 2px;
     }
 
-    .mood-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .mood-cell {
+    .gallery-cell {
       overflow: hidden;
       position: relative;
     }
 
-    .mood-cell-tall {
-      grid-row: span 2;
-    }
+    .gallery-cell-tall { grid-row: span 2; }
+    .gallery-cell-wide { grid-column: span 2; }
 
-    .mood-cell-wide {
-      grid-column: span 2;
-    }
-
-    .mood-cell .mood-img {
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       transition: transform 6s ease;
     }
 
-    .mood-cell:hover .mood-img {
+    .gallery-cell:hover .gallery-img {
       transform: scale(1.03);
     }
 
-    /* Placeholder for images before Shopify upload */
-    .mood-placeholder {
+    .gallery-placeholder {
       width: 100%;
       height: 100%;
-      min-height: 300px;
+      min-height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-body);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 400;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--color-warm-gray);
+      color: rgba(0,0,0,0.2);
     }
 
-    .mood-cell:nth-child(1) .mood-placeholder { background: #d4c5b3; min-height: 600px; }
-    .mood-cell:nth-child(2) .mood-placeholder { background: #c8d8e8; }
-    .mood-cell:nth-child(3) .mood-placeholder { background: #2a2a2a; color: #666; }
-    .mood-cell:nth-child(4) .mood-placeholder { background: #8ea8c4; }
-    .mood-cell:nth-child(5) .mood-placeholder { background: #a4c4d8; min-height: 400px; }
+    .gallery-cell:nth-child(1) .gallery-placeholder { background: #d4c5b3; min-height: 640px; }
+    .gallery-cell:nth-child(2) .gallery-placeholder { background: #e8e3dc; }
+    .gallery-cell:nth-child(3) .gallery-placeholder { background: #2a2725; color: rgba(255,255,255,0.15); }
+    .gallery-cell:nth-child(4) .gallery-placeholder { background: #c4d0dc; }
+    .gallery-cell:nth-child(5) .gallery-placeholder { background: #d8e2ec; min-height: 400px; }
 
-    .mood-cta-block {
+    .gallery-cta-block {
       text-align: center;
-      padding: 60px 48px 100px;
+      padding: 80px 48px;
+      background: var(--color-off-white);
     }
 
     /* ── Drop Info Section ── */
@@ -692,16 +787,21 @@
       .countdown-number { font-size: 14px; }
       .countdown-cta { padding: 6px 16px; font-size: 8px; }
 
-      .mood-gallery {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .mood-cell-tall { grid-row: span 1; }
-      .mood-cell-wide { grid-column: span 2; }
-      .mood-cell:nth-child(1) .mood-placeholder { min-height: 350px; }
+      .story-section,
+      .palette-section { padding: 80px 24px; }
 
-      .mood-text-block,
-      .mood-cta-block { padding-left: 24px; padding-right: 24px; }
+      .palette-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-cell-tall { grid-row: span 1; }
+      .gallery-cell-wide { grid-column: span 2; }
+      .gallery-cell:nth-child(1) .gallery-placeholder { min-height: 350px; }
+
+      .gallery-cta-block { padding: 60px 24px; }
 
       .drop-section,
       .benefits-section { padding: 80px 24px; }
@@ -798,54 +898,109 @@
     <div class="hero-scroll"><span></span></div>
   </section>
 
-  <!-- Mood Section -->
-  <section class="mood-section">
-    <div class="mood-text-block">
-      <p class="eyebrow">The Mood</p>
-      <h2>estate italiana, vibes mediterranee</h2>
-      <p>lino, denim, sole e sale sulla pelle. questa capsule è un viaggio — dal porto alla piazzetta, dal tramonto alla notte. made in italy, obviously.</p>
+  <!-- Capsule Story -->
+  <section class="story-section">
+    <div class="story-container">
+      <p class="eyebrow">Summer Capsule 26</p>
+      <h2>"Sapore di Sale"</h2>
+      <div class="story-body">
+        <p>
+          C'è un momento preciso dell'estate in cui tutto rallenta. Il sale si asciuga sulla pelle, il lino si stropiccia nel modo giusto, il sole fa il resto. "Sapore di Sale" nasce lì — in quell'istante tra il bagno e l'aperitivo, tra la spiaggia e la piazzetta.
+        </p>
+        <p>
+          Tre camicie in puro lino italiano — bianco, azzurro, marrone. Il lino non è solo un tessuto: vibra a una frequenza naturale di 5000 Hz, la più alta tra le fibre. Studi sul benessere lo associano a un effetto calmante sul sistema nervoso. Noi lo associamo al non volersi togliere la camicia neanche a cena.
+        </p>
+        <p>
+          Due camicie in seersucker a righe — lilla e azzurro. Il tessuto che non si stira, che respira, che ha quell'increspatura che sembra fatta apposta per sembrare appena tornati da qualche parte bellissima.
+        </p>
+        <p>
+          Due bermuda in denim. Basta. Pezzi limitati, manifattura italiana, nessun restock.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabric Palette -->
+  <section class="palette-section">
+    <div class="palette-header">
+      <p class="eyebrow">La Palette</p>
+      <h2>7 pezzi. 3 tessuti. 1 estate.</h2>
     </div>
 
     <!--
-      MOOD GALLERY — ISTRUZIONI PER LE IMMAGINI:
-      Carica le foto su Shopify (Settings > Files) e sostituisci i placeholder.
-      Layout: 5 celle con disposizione editoriale asimmetrica.
-
-      Cella 1 (alta, a sinistra): foto spiaggia dolce vita
-      Cella 2: camicia lino brown (close-up ricamo Anima Studios)
-      Cella 3: jeans nero (close-up tasca)
-      Cella 4: jeans chiaro (retro con etichetta Anima Studios)
-      Cella 5 (larga): camicia fiori "Love Therapy" (back shot con fiori)
+      PALETTE: Ogni swatch rappresenta un capo della capsule.
+      Colori approssimati dai tessuti — aggiusta i hex se necessario.
+      Hover rivela un whisper del tessuto, non il nome del prodotto.
     -->
-    <div class="mood-gallery">
-      <div class="mood-cell mood-cell-tall">
-        <!-- Foto spiaggia dolce vita -->
-        <div class="mood-placeholder">spiaggia dolce vita</div>
-        <!-- <img src="URL_SHOPIFY" alt="Italian summer beach" class="mood-img"> -->
+    <div class="palette-grid">
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #f5f0e8;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">lino</div>
       </div>
-      <div class="mood-cell">
-        <!-- Camicia lino brown close-up -->
-        <div class="mood-placeholder">lino brown</div>
-        <!-- <img src="URL_SHOPIFY" alt="Linen shirt detail" class="mood-img"> -->
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #b8ccd8;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">lino</div>
       </div>
-      <div class="mood-cell">
-        <!-- Jeans nero close-up -->
-        <div class="mood-placeholder">denim nero</div>
-        <!-- <img src="URL_SHOPIFY" alt="Black denim detail" class="mood-img"> -->
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #8b7d6b;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-off-white);">lino</div>
       </div>
-      <div class="mood-cell">
-        <!-- Jeans chiaro retro -->
-        <div class="mood-placeholder">denim chiaro</div>
-        <!-- <img src="URL_SHOPIFY" alt="Light denim back" class="mood-img"> -->
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #c5b8cb;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">seersucker</div>
       </div>
-      <div class="mood-cell mood-cell-wide">
-        <!-- Camicia fiori Love Therapy -->
-        <div class="mood-placeholder">flower therapy shirt</div>
-        <!-- <img src="URL_SHOPIFY" alt="Flower Therapy shirt back" class="mood-img"> -->
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #c8d5e0;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">seersucker</div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #a4b8cc;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">denim</div>
+      </div>
+      <div class="palette-swatch">
+        <div class="palette-swatch-inner" style="background: #2c2926;"></div>
+        <div class="palette-swatch-label" style="color: var(--color-warm-gray);">denim</div>
+      </div>
+    </div>
+    <p class="palette-note">hover to reveal</p>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section">
+    <!--
+      GALLERY — Carica le foto su Shopify (Settings > Files).
+      Sostituisci i placeholder con <img> tags.
+
+      Cella 1 (alta): foto spiaggia dolce vita
+      Cella 2: camicia lino brown close-up
+      Cella 3: jeans nero close-up
+      Cella 4: jeans chiaro retro
+      Cella 5 (larga): camicia fiori back shot
+    -->
+    <div class="gallery-grid">
+      <div class="gallery-cell gallery-cell-tall">
+        <div class="gallery-placeholder">—</div>
+        <!-- <img src="URL_SHOPIFY" alt="" class="gallery-img"> -->
+      </div>
+      <div class="gallery-cell">
+        <div class="gallery-placeholder">—</div>
+        <!-- <img src="URL_SHOPIFY" alt="" class="gallery-img"> -->
+      </div>
+      <div class="gallery-cell">
+        <div class="gallery-placeholder">—</div>
+        <!-- <img src="URL_SHOPIFY" alt="" class="gallery-img"> -->
+      </div>
+      <div class="gallery-cell">
+        <div class="gallery-placeholder">—</div>
+        <!-- <img src="URL_SHOPIFY" alt="" class="gallery-img"> -->
+      </div>
+      <div class="gallery-cell gallery-cell-wide">
+        <div class="gallery-placeholder">—</div>
+        <!-- <img src="URL_SHOPIFY" alt="" class="gallery-img"> -->
       </div>
     </div>
 
-    <div class="mood-cta-block">
+    <div class="gallery-cta-block">
       <button class="btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
     </div>
   </section>
