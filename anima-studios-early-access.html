@@ -1,739 +1,634 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sapore di Sale — Summer Capsule 26 | Anima Studios</title>
-  <meta name="description" content="Entra nella family. Early access alla capsule Sapore di Sale — Anima Studios. The Art of Dreams. Made in Italy.">
+<!-- ============================================
+     ANIMA STUDIOS — "Sapore di Sale" Early Access
+     Shopify Page Content (da incollare nell'editor
+     pagina in modalità HTML <>)
+     NOTA: niente <!DOCTYPE>, <head> o <body> —
+     Shopify inietta questo dentro theme.liquid.
+     Font Google e script Klaviyo già caricati dal tema.
+     ============================================ -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Scoped reset: solo per la landing, non tocca il tema */
+  .sds-landing,
+  .sds-landing *,
+  .sds-landing *::before,
+  .sds-landing *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Rqt3UD"></script>
+  .sds-landing {
+    --sds-black: #1a1a1a;
+    --sds-white: #ffffff;
+    --sds-off-white: #f7f5f2;
+    --sds-cream: #f0ebe3;
+    --sds-warm-gray: #b8b0a6;
+    --sds-dark-gray: #3d3a37;
+    --sds-accent: #8a7d6b;
+    --sds-sand: #c4b59d;
+    --sds-heading: 'Cormorant', Georgia, serif;
+    --sds-body: 'Montserrat', -apple-system, sans-serif;
 
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    font-family: var(--sds-body);
+    color: var(--sds-black);
+    background-color: var(--sds-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-    :root {
-      --color-black: #1a1a1a;
-      --color-white: #ffffff;
-      --color-off-white: #f7f5f2;
-      --color-cream: #f0ebe3;
-      --color-warm-gray: #b8b0a6;
-      --color-dark-gray: #3d3a37;
-      --color-accent: #8a7d6b;
-      --color-sand: #c4b59d;
-      --font-heading: 'Cormorant', serif;
-      --font-body: 'Montserrat', sans-serif;
-    }
+  /* ── Countdown Bar (in-flow) ── */
+  .sds-countdown-bar {
+    background: var(--sds-black);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
 
-    html { scroll-behavior: smooth; }
+  .sds-countdown-label {
+    font-family: var(--sds-body);
+    font-size: clamp(8px, 1.5vw, 10px);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sds-warm-gray);
+  }
 
-    body {
-      font-family: var(--font-body);
-      color: var(--color-black);
-      background-color: var(--color-white);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+  .sds-countdown-timer {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 
-    /* ── Countdown Bar (in-flow, not sticky) ── */
-    .countdown-bar {
-      background: var(--color-black);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
+  .sds-countdown-unit { text-align: center; }
 
-    .countdown-label {
-      font-family: var(--font-body);
-      font-size: clamp(8px, 1.5vw, 10px);
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-    }
+  .sds-countdown-number {
+    font-family: var(--sds-body);
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 600;
+    color: var(--sds-white);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
 
-    .countdown-timer {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
+  .sds-countdown-unit-label {
+    font-family: var(--sds-body);
+    font-size: 7px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sds-warm-gray);
+    margin-top: 4px;
+  }
 
-    .countdown-unit {
-      text-align: center;
-    }
+  .sds-countdown-separator {
+    font-family: var(--sds-body);
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    line-height: 1;
+  }
 
-    .countdown-number {
-      font-family: var(--font-body);
-      font-size: clamp(14px, 2.5vw, 18px);
-      font-weight: 600;
-      color: var(--color-white);
-      letter-spacing: 0.05em;
-      line-height: 1;
-    }
+  .sds-countdown-cta {
+    font-family: var(--sds-body);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sds-black);
+    background: var(--sds-white);
+    border: none;
+    padding: 12px 20px;
+    min-height: 48px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
 
-    .countdown-unit-label {
-      font-family: var(--font-body);
-      font-size: 7px;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-      margin-top: 4px;
-    }
+  .sds-countdown-cta:hover { background: var(--sds-sand); }
 
-    .countdown-separator {
-      font-family: var(--font-body);
-      font-size: clamp(14px, 2.5vw, 18px);
-      font-weight: 300;
-      color: rgba(255,255,255,0.3);
-      line-height: 1;
-    }
+  /* ── Hero ── */
+  .sds-hero {
+    position: relative;
+    min-height: 600px;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
 
-    .countdown-cta {
-      font-family: var(--font-body);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-black);
-      background: var(--color-white);
-      border: none;
-      padding: 12px 20px;
-      min-height: 48px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+  .sds-hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
 
-    .countdown-cta:hover {
-      background: var(--color-sand);
-    }
+  .sds-hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+  }
 
-    /* ── Hero Section ── */
-    .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
+  .sds-hero-slide.active { opacity: 1; }
 
-    .hero-slideshow {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
+  .sds-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 26, 26, 0.55) 0%,
+      rgba(26, 26, 26, 0.35) 40%,
+      rgba(26, 26, 26, 0.55) 100%
+    );
+  }
 
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-      background-size: cover;
-      background-position: center;
-    }
+  .sds-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 720px;
+    padding: 0 24px;
+  }
 
-    .hero-slide.active { opacity: 1; }
+  .sds-hero-capsule-label {
+    font-family: var(--sds-body);
+    font-size: clamp(9px, 1.5vw, 11px);
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sds-sand);
+    margin-bottom: 20px;
+  }
 
-    .hero-slide::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(26, 26, 26, 0.55) 0%,
-        rgba(26, 26, 26, 0.35) 40%,
-        rgba(26, 26, 26, 0.55) 100%
-      );
-    }
+  .sds-hero-title {
+    font-family: var(--sds-heading);
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.05;
+    color: var(--sds-white);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 720px;
-      padding: 0 24px;
-    }
+  .sds-hero-sub {
+    font-family: var(--sds-body);
+    font-size: clamp(10px, 1.5vw, 12px);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+  }
 
-    .hero-capsule-label {
-      font-family: var(--font-body);
-      font-size: clamp(9px, 1.5vw, 11px);
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-sand);
-      margin-bottom: 20px;
-    }
+  .sds-hero-drop-info {
+    font-family: var(--sds-body);
+    font-size: clamp(12px, 1.8vw, 13px);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--sds-warm-gray);
+    margin-bottom: 40px;
+  }
 
-    .hero-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 7vw, 6rem);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.05;
-      color: var(--color-white);
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
-    }
+  .sds-hero-drop-info strong {
+    color: var(--sds-white);
+    font-weight: 500;
+  }
 
-    .hero-sub {
-      font-family: var(--font-body);
-      font-size: clamp(10px, 1.5vw, 12px);
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 32px;
-    }
+  /* ── CTA Buttons ── */
+  .sds-btn-cta,
+  .sds-btn-cta-dark,
+  .sds-btn-outline-light {
+    display: inline-block;
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px 48px;
+    min-height: 48px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
 
-    .hero-drop-info {
-      font-family: var(--font-body);
-      font-size: clamp(12px, 1.8vw, 13px);
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--color-warm-gray);
-      margin-bottom: 40px;
-    }
+  .sds-btn-cta {
+    color: var(--sds-black);
+    background: var(--sds-white);
+    border: 1px solid var(--sds-white);
+  }
 
-    .hero-drop-info strong {
-      color: var(--color-white);
-      font-weight: 500;
-    }
+  .sds-btn-cta:hover {
+    background: transparent;
+    color: var(--sds-white);
+  }
 
-    /* ── CTA Buttons ── */
-    .btn-cta {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-black);
-      background: var(--color-white);
-      border: 1px solid var(--color-white);
-      padding: 16px 48px;
-      min-height: 48px;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
+  .sds-btn-cta-dark {
+    color: var(--sds-white);
+    background: var(--sds-black);
+    border: 1px solid var(--sds-black);
+  }
 
-    .btn-cta:hover {
-      background: transparent;
-      color: var(--color-white);
-    }
+  .sds-btn-cta-dark:hover {
+    background: transparent;
+    color: var(--sds-black);
+  }
 
-    .btn-cta-dark {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      background: var(--color-black);
-      border: 1px solid var(--color-black);
-      padding: 16px 48px;
-      min-height: 48px;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
+  .sds-btn-outline-light {
+    color: var(--sds-white);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
 
-    .btn-cta-dark:hover {
-      background: transparent;
-      color: var(--color-black);
-    }
+  .sds-btn-outline-light:hover {
+    background: var(--sds-white);
+    color: var(--sds-black);
+    border-color: var(--sds-white);
+  }
 
-    .btn-outline-light {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 16px 48px;
-      min-height: 48px;
-      text-decoration: none;
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
+  /* ── Story ── */
+  .sds-story-section {
+    padding: clamp(80px, 10vw, 120px) 24px;
+    background: var(--sds-white);
+  }
 
-    .btn-outline-light:hover {
-      background: var(--color-white);
-      color: var(--color-black);
-      border-color: var(--color-white);
-    }
+  .sds-story-container {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-    }
+  .sds-eyebrow {
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sds-accent);
+    margin-bottom: 24px;
+  }
 
-    .hero-scroll span {
-      display: block;
-      width: 1px;
-      height: 48px;
-      background: var(--color-warm-gray);
-      margin: 0 auto;
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
+  .sds-story-container h2 {
+    font-family: var(--sds-heading);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--sds-black);
+    margin-bottom: 40px;
+    line-height: 1.15;
+  }
 
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
+  .sds-story-body { text-align: left; }
 
-    /* ── Capsule Story Section ── */
-    .story-section {
-      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
-      background: var(--color-white);
-    }
+  .sds-story-body p {
+    font-family: var(--sds-body);
+    font-size: clamp(13px, 1.8vw, 14px);
+    font-weight: 300;
+    line-height: 2;
+    color: var(--sds-dark-gray);
+    margin-bottom: 24px;
+  }
 
-    .story-container {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
+  .sds-story-body p:last-child { margin-bottom: 0; }
 
-    .story-container .eyebrow {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 28px;
-    }
+  /* ── Palette ── */
+  .sds-palette-section {
+    padding: clamp(80px, 10vw, 100px) 24px;
+    background: var(--sds-off-white);
+  }
 
-    .story-container h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--color-black);
-      margin-bottom: 40px;
-      line-height: 1.15;
-    }
+  .sds-palette-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
 
-    .story-body {
-      text-align: left;
-    }
+  .sds-palette-header h2 {
+    font-family: var(--sds-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    color: var(--sds-black);
+    line-height: 1.3;
+  }
 
-    .story-body p {
-      font-family: var(--font-body);
-      font-size: clamp(13px, 1.8vw, 14px);
-      font-weight: 300;
-      line-height: 2;
-      color: var(--color-dark-gray);
-      margin-bottom: 24px;
-    }
+  .sds-palette-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
 
-    .story-body p:last-child {
-      margin-bottom: 0;
-    }
+  .sds-palette-swatch {
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* ── Fabric Palette ── */
-    .palette-section {
-      padding: clamp(80px, 10vw, 100px) clamp(24px, 5vw, 48px);
-      background: var(--color-off-white);
-    }
+  .sds-palette-swatch-inner {
+    width: 100%;
+    height: 100%;
+  }
 
-    .palette-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+  .sds-palette-swatch-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 4px;
+    text-align: center;
+    font-family: var(--sds-body);
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
 
-    .palette-header .eyebrow {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 20px;
-    }
+  /* ── Drop Section ── */
+  .sds-drop-section {
+    padding: clamp(80px, 10vw, 120px) 24px;
+    background: var(--sds-black);
+    text-align: center;
+  }
 
-    .palette-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 400;
-      color: var(--color-black);
-      line-height: 1.2;
-    }
+  .sds-drop-section .sds-eyebrow {
+    color: var(--sds-warm-gray);
+  }
 
-    .palette-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
+  .sds-drop-section h2 {
+    font-family: var(--sds-heading);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: var(--sds-white);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  .sds-drop-timeline {
+    display: flex;
+    justify-content: center;
+    gap: clamp(24px, 8vw, 80px);
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    padding: 0 24px;
+  }
+
+  .sds-drop-time { text-align: center; }
+
+  .sds-drop-time-hour {
+    font-family: var(--sds-heading);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 400;
+    color: var(--sds-white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .sds-drop-time-label {
+    font-family: var(--sds-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sds-warm-gray);
+  }
+
+  .sds-drop-time-sub {
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--sds-sand);
+    margin-top: 4px;
+  }
+
+  .sds-drop-divider {
+    width: 1px;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+    align-self: center;
+  }
+
+  .sds-drop-desc {
+    font-family: var(--sds-body);
+    font-size: clamp(13px, 1.8vw, 14px);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--sds-warm-gray);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+  }
+
+  .sds-drop-note {
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(184, 176, 166, 0.5);
+    margin-top: 24px;
+    letter-spacing: 0.04em;
+    padding: 0 24px;
+  }
+
+  /* ── Benefits ── */
+  .sds-benefits-section {
+    padding: clamp(80px, 10vw, 120px) 24px;
+    background: var(--sds-cream);
+    text-align: center;
+  }
+
+  .sds-benefits-eyebrow {
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8378;
+    margin-bottom: 20px;
+  }
+
+  .sds-benefits-title {
+    font-family: var(--sds-heading);
+    font-size: clamp(28px, 7vw, 42px);
+    font-weight: 700;
+    color: var(--sds-black);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+
+  .sds-benefits-subtitle {
+    font-family: var(--sds-heading);
+    font-size: clamp(28px, 7vw, 42px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--sds-dark-gray);
+    line-height: 1.15;
+    margin-bottom: 56px;
+  }
+
+  .sds-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto 56px;
+  }
+
+  .sds-benefit-item { text-align: center; }
+
+  .sds-benefit-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 16px;
+  }
+
+  .sds-benefit-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--sds-black);
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sds-benefit-item h3 {
+    font-family: var(--sds-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sds-black);
+    margin-bottom: 8px;
+  }
+
+  .sds-benefit-item p {
+    font-family: var(--sds-body);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--sds-dark-gray);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .sds-countdown-bar {
       gap: 8px;
-      max-width: 840px;
-      margin: 0 auto;
+      padding: 12px 16px;
     }
 
-    .palette-swatch {
-      aspect-ratio: 3/5;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .palette-swatch-inner {
+    .sds-countdown-label {
       width: 100%;
-      height: 100%;
-    }
-
-    .palette-swatch-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 4px;
       text-align: center;
-      font-family: var(--font-body);
-      font-size: 8px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      margin-bottom: 4px;
     }
 
-    /* ── Drop Info Section ── */
-    .drop-section {
-      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
-      background: var(--color-black);
-      text-align: center;
+    .sds-countdown-timer { gap: 10px; }
+
+    .sds-countdown-cta {
+      width: 100%;
+      max-width: 320px;
+      margin-top: 8px;
+      padding: 14px 20px;
     }
 
-    .drop-section .eyebrow {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-      margin-bottom: 24px;
+    .sds-hero {
+      min-height: 500px;
+      height: 70vh;
     }
 
-    .drop-section h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 400;
-      color: var(--color-white);
-      margin-bottom: 48px;
-      line-height: 1.2;
+    .sds-palette-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 100%;
     }
 
-    .drop-timeline {
-      display: flex;
-      justify-content: center;
-      gap: clamp(40px, 8vw, 80px);
-      margin-bottom: 56px;
-      flex-wrap: wrap;
+    .sds-drop-timeline { gap: 24px; }
+
+    .sds-drop-divider {
+      width: 40px;
+      height: 1px;
     }
 
-    .drop-time {
+    /* Benefits: griglia 2x2 su mobile */
+    .sds-benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .sds-btn-cta,
+    .sds-btn-cta-dark,
+    .sds-btn-outline-light {
+      width: 100%;
+      max-width: 320px;
       text-align: center;
     }
+  }
+</style>
 
-    .drop-time-hour {
-      font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      font-weight: 400;
-      color: var(--color-white);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .drop-time-label {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-    }
-
-    .drop-time-sub {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 300;
-      color: var(--color-sand);
-      margin-top: 4px;
-    }
-
-    .drop-divider {
-      width: 1px;
-      height: 80px;
-      background: rgba(255,255,255,0.15);
-      align-self: center;
-    }
-
-    .drop-section .section-desc {
-      font-family: var(--font-body);
-      font-size: clamp(13px, 1.8vw, 14px);
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--color-warm-gray);
-      max-width: 480px;
-      margin: 0 auto 48px;
-    }
-
-    .drop-note {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 300;
-      color: rgba(184, 176, 166, 0.5);
-      margin-top: 24px;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Family Benefits ── */
-    .benefits-section {
-      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
-      background: var(--color-cream);
-      text-align: center;
-    }
-
-    .benefits-section .eyebrow {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 20px;
-    }
-
-    .benefits-section h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.5rem, 3vw, 2.8rem);
-      font-weight: 400;
-      color: var(--color-black);
-      margin-bottom: 56px;
-      line-height: 1.2;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto 56px;
-    }
-
-    .benefit-item {
-      text-align: center;
-    }
-
-    .benefit-icon {
-      width: 32px;
-      height: 32px;
-      margin: 0 auto 16px;
-    }
-
-    .benefit-icon svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--color-black);
-      fill: none;
-      stroke-width: 1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .benefit-item h3 {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-black);
-      margin-bottom: 8px;
-    }
-
-    .benefit-item p {
-      font-family: var(--font-body);
-      font-size: clamp(11px, 1.5vw, 12px);
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--color-dark-gray);
-    }
-
-    /* ── Footer ── */
-    .footer {
-      padding: clamp(32px, 5vw, 48px);
-      background: var(--color-black);
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-logo {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      margin-bottom: 8px;
-    }
-
-    .footer-tagline {
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-style: italic;
-      color: var(--color-warm-gray);
-      margin-bottom: 32px;
-    }
-
-    .footer-copy {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: rgba(184, 176, 166, 0.5);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .countdown-bar {
-        gap: 8px;
-        padding: 12px 16px;
-        justify-content: center;
-      }
-
-      .countdown-label {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 4px;
-      }
-
-      .countdown-timer { gap: 10px; }
-
-      .countdown-cta {
-        width: 100%;
-        margin-top: 8px;
-        padding: 14px 20px;
-      }
-
-      .hero { min-height: 500px; }
-      .hero-scroll { display: none; }
-
-      .palette-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        max-width: 100%;
-      }
-
-      .palette-swatch {
-        aspect-ratio: 1/1;
-      }
-
-      .palette-swatch-label {
-        opacity: 1;
-      }
-
-      .drop-timeline {
-        gap: 24px;
-      }
-
-      .drop-divider {
-        width: 40px;
-        height: 1px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        max-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .btn-cta,
-      .btn-cta-dark,
-      .btn-outline-light {
-        width: 100%;
-        max-width: 320px;
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body>
+<div class="sds-landing">
 
   <!-- Countdown Bar -->
-  <div class="countdown-bar">
-    <span class="countdown-label">Drop in</span>
-    <div class="countdown-timer">
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-days">--</div>
-        <div class="countdown-unit-label">Days</div>
+  <div class="sds-countdown-bar">
+    <span class="sds-countdown-label">Drop in</span>
+    <div class="sds-countdown-timer">
+      <div class="sds-countdown-unit">
+        <div class="sds-countdown-number" id="sds-cd-days">--</div>
+        <div class="sds-countdown-unit-label">Days</div>
       </div>
-      <span class="countdown-separator">:</span>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-hours">--</div>
-        <div class="countdown-unit-label">Hours</div>
+      <span class="sds-countdown-separator">:</span>
+      <div class="sds-countdown-unit">
+        <div class="sds-countdown-number" id="sds-cd-hours">--</div>
+        <div class="sds-countdown-unit-label">Hours</div>
       </div>
-      <span class="countdown-separator">:</span>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-mins">--</div>
-        <div class="countdown-unit-label">Mins</div>
+      <span class="sds-countdown-separator">:</span>
+      <div class="sds-countdown-unit">
+        <div class="sds-countdown-number" id="sds-cd-mins">--</div>
+        <div class="sds-countdown-unit-label">Mins</div>
       </div>
-      <span class="countdown-separator">:</span>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-secs">--</div>
-        <div class="countdown-unit-label">Secs</div>
+      <span class="sds-countdown-separator">:</span>
+      <div class="sds-countdown-unit">
+        <div class="sds-countdown-number" id="sds-cd-secs">--</div>
+        <div class="sds-countdown-unit-label">Secs</div>
       </div>
     </div>
-    <button class="countdown-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+    <button class="sds-countdown-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
   </div>
 
-  <!-- Hero with background slideshow -->
-  <section class="hero">
-    <div class="hero-slideshow">
+  <!-- Hero -->
+  <section class="sds-hero">
+    <div class="sds-hero-slideshow">
       <!--
         Sostituisci i URL con le immagini caricate su Shopify (Settings > Files).
-        Slide 1: foto camicia fiori (flower shirt back)
-        Slide 2: foto spiaggia dolce vita
+        Slide 1: foto camicia fiori — Slide 2: foto spiaggia dolce vita
       -->
-      <div class="hero-slide active" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_CAMICIA_FIORI');"></div>
-      <div class="hero-slide" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_SPIAGGIA');"></div>
+      <div class="sds-hero-slide active" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_CAMICIA_FIORI');"></div>
+      <div class="sds-hero-slide" style="background-image: url('SOSTITUISCI_CON_URL_FOTO_SPIAGGIA');"></div>
     </div>
 
-    <div class="hero-content">
-      <p class="hero-capsule-label">Summer Capsule 26</p>
-      <h1 class="hero-title">"Sapore di Sale"</h1>
-      <p class="hero-sub">Anima Studios — The Art of Dreams</p>
-      <p class="hero-drop-info">
+    <div class="sds-hero-content">
+      <p class="sds-hero-capsule-label">Summer Capsule 26</p>
+      <h1 class="sds-hero-title">"Sapore di Sale"</h1>
+      <p class="sds-hero-sub">Anima Studios — The Art of Dreams</p>
+      <p class="sds-hero-drop-info">
         il drop è <strong>martedì 16 giugno</strong>.<br>
         family members alle <strong>18:00</strong> — tutti gli altri alle 19:00.
       </p>
-      <button class="btn-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+      <button class="sds-btn-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
     </div>
-    <div class="hero-scroll"><span></span></div>
   </section>
 
   <!-- Capsule Story -->
-  <section class="story-section">
-    <div class="story-container">
-      <p class="eyebrow">Summer Capsule 26</p>
+  <section class="sds-story-section">
+    <div class="sds-story-container">
+      <p class="sds-eyebrow">Summer Capsule 26</p>
       <h2>"Sapore di Sale"</h2>
-      <div class="story-body">
+      <div class="sds-story-body">
         <p>
           Lunghe giornate al sole, cene sotto le stelle, aperitivi vista mare. Giri in Vespa, profumo di limone e pino marittimo, il calore delle notti in piazza. "Sapore di Sale" è il guardaroba di quel momento lì — quando stacchi davvero e il tempo si misura in tramonti.
         </p>
@@ -750,102 +645,99 @@
     </div>
   </section>
 
-  <!-- Fabric Palette -->
-  <section class="palette-section">
-    <div class="palette-header">
-      <p class="eyebrow">La Palette</p>
-      <h2>3 tessuti. 1 estate.</h2>
+  <!-- Fabric Palette: 6 swatches, griglia 3x2 -->
+  <section class="sds-palette-section">
+    <div class="sds-palette-header">
+      <p class="sds-eyebrow">La Palette</p>
+      <h2>3 tessuti.<br>1 estate.</h2>
     </div>
 
-    <div class="palette-grid">
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #f5f0e8;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">lino</div>
+    <div class="sds-palette-grid">
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #f5f0e8;"></div>
+        <div class="sds-palette-swatch-label" style="color: #3d3a37;">lino</div>
       </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #b8ccd8;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">lino</div>
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #b8ccd8;"></div>
+        <div class="sds-palette-swatch-label" style="color: #3d3a37;">lino</div>
       </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #8b7d6b;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-off-white);">lino</div>
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #8b7d6b;"></div>
+        <div class="sds-palette-swatch-label" style="color: #f7f5f2;">lino</div>
       </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #c5b8cb;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">seersucker</div>
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #c5b8cb;"></div>
+        <div class="sds-palette-swatch-label" style="color: #3d3a37;">seersucker</div>
       </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #c8d5e0;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">seersucker</div>
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #c8d5e0;"></div>
+        <div class="sds-palette-swatch-label" style="color: #3d3a37;">seersucker</div>
       </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #a4b8cc;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-dark-gray);">denim</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="palette-swatch-inner" style="background: #2c2926;"></div>
-        <div class="palette-swatch-label" style="color: var(--color-warm-gray);">denim</div>
+      <div class="sds-palette-swatch">
+        <div class="sds-palette-swatch-inner" style="background: #a4b8cc;"></div>
+        <div class="sds-palette-swatch-label" style="color: #3d3a37;">denim</div>
       </div>
     </div>
   </section>
 
-  <!-- Drop Info Section -->
-  <section class="drop-section">
-    <p class="eyebrow">Martedì 16 Giugno 2026</p>
+  <!-- Drop Info -->
+  <section class="sds-drop-section">
+    <p class="sds-eyebrow">Martedì 16 Giugno 2026</p>
     <h2>il drop</h2>
 
-    <div class="drop-timeline">
-      <div class="drop-time">
-        <div class="drop-time-hour">18:00</div>
-        <div class="drop-time-label">Family Members</div>
-        <div class="drop-time-sub">early access — 1 ora prima</div>
+    <div class="sds-drop-timeline">
+      <div class="sds-drop-time">
+        <div class="sds-drop-time-hour">18:00</div>
+        <div class="sds-drop-time-label">Family Members</div>
+        <div class="sds-drop-time-sub">early access — 1 ora prima</div>
       </div>
-      <div class="drop-divider"></div>
-      <div class="drop-time">
-        <div class="drop-time-hour">19:00</div>
-        <div class="drop-time-label">Everyone Else</div>
-        <div class="drop-time-sub">general access</div>
+      <div class="sds-drop-divider"></div>
+      <div class="sds-drop-time">
+        <div class="sds-drop-time-hour">19:00</div>
+        <div class="sds-drop-time-label">Everyone Else</div>
+        <div class="sds-drop-time-sub">general access</div>
       </div>
     </div>
 
-    <p class="section-desc">
+    <p class="sds-drop-desc">
       pezzi limitati, una volta sold out non tornano.<br>
       entra nella family per accedere un'ora prima. it's that simple.
     </p>
 
-    <button class="btn-outline-light" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
-    <p class="drop-note">zero spam. solo cose che contano fr.</p>
+    <button class="sds-btn-outline-light" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+    <p class="sds-drop-note">zero spam. solo cose che contano fr.</p>
   </section>
 
   <!-- Family Benefits -->
-  <section class="benefits-section">
-    <p class="eyebrow">Why Join the Family</p>
-    <h2>family members get early access — and that's not all</h2>
+  <section class="sds-benefits-section">
+    <p class="sds-benefits-eyebrow">Why Join the Family</p>
+    <h2 class="sds-benefits-title">family members get early access</h2>
+    <p class="sds-benefits-subtitle">— and that's not all</p>
 
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <div class="benefit-icon">
+    <div class="sds-benefits-grid">
+      <div class="sds-benefit-item">
+        <div class="sds-benefit-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Early Access to All Drops</h3>
         <p>un'ora prima di tutti. ogni drop, ogni capsule.</p>
       </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">
+      <div class="sds-benefit-item">
+        <div class="sds-benefit-icon">
           <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
         <h3>First Look Previews</h3>
         <p>vedi le nuove collezioni prima che escano. bts content, fitting, mood.</p>
       </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">
+      <div class="sds-benefit-item">
+        <div class="sds-benefit-icon">
           <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
         </div>
         <h3>Coupons & Gifts</h3>
         <p>sconti esclusivi e surprise gifts durante l'anno.</p>
       </div>
-      <div class="benefit-item">
-        <div class="benefit-icon">
+      <div class="sds-benefit-item">
+        <div class="sds-benefit-icon">
           <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
         </div>
         <h3>BTS Content</h3>
@@ -853,58 +745,60 @@
       </div>
     </div>
 
-    <button class="btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
+    <button class="sds-btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p class="footer-logo">Anima Studios</p>
-    <p class="footer-tagline">The Art of Dreams — Made in Italy</p>
-    <p class="footer-copy">&copy; 2026 Anima Studios. All rights reserved.</p>
-  </footer>
+</div>
 
-  <!-- Countdown + Slideshow Scripts -->
-  <script>
-    const dropDate = new Date('2026-06-16T16:00:00Z');
+<script>
+  (function() {
+    // Countdown to June 16, 2026 18:00 CEST (16:00 UTC)
+    var dropDate = new Date('2026-06-16T16:00:00Z');
 
     function updateCountdown() {
-      const now = new Date();
-      const diff = dropDate - now;
+      var now = new Date();
+      var diff = dropDate - now;
+
+      var elDays = document.getElementById('sds-cd-days');
+      var elHours = document.getElementById('sds-cd-hours');
+      var elMins = document.getElementById('sds-cd-mins');
+      var elSecs = document.getElementById('sds-cd-secs');
+      if (!elDays) return;
 
       if (diff <= 0) {
-        document.getElementById('cd-days').textContent = '00';
-        document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-mins').textContent = '00';
-        document.getElementById('cd-secs').textContent = '00';
-        document.querySelector('.countdown-label').textContent = 'Live Now';
+        elDays.textContent = '00';
+        elHours.textContent = '00';
+        elMins.textContent = '00';
+        elSecs.textContent = '00';
+        var label = document.querySelector('.sds-countdown-label');
+        if (label) label.textContent = 'Live Now';
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
 
-      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+      elDays.textContent = String(days).padStart(2, '0');
+      elHours.textContent = String(hours).padStart(2, '0');
+      elMins.textContent = String(mins).padStart(2, '0');
+      elSecs.textContent = String(secs).padStart(2, '0');
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
+    // Hero slideshow
+    var slides = document.querySelectorAll('.sds-hero-slide');
+    var currentSlide = 0;
 
     if (slides.length > 1) {
-      setInterval(() => {
+      setInterval(function() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
       }, 5000);
     }
-  </script>
-
-</body>
-</html>
+  })();
+</script>
