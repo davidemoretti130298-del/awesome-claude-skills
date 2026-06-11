@@ -42,79 +42,20 @@
       overflow-x: hidden;
     }
 
-    /* ── Announcement Bar ── */
-    .announcement-bar {
-      background-color: var(--color-black);
-      color: var(--color-white);
-      text-align: center;
-      padding: 10px 20px;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    /* ── Navigation ── */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 48px;
-      background-color: transparent;
-      position: absolute;
-      top: 40px;
-      left: 0;
-      right: 0;
-      z-index: 100;
-    }
-
-    .navbar-logo {
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      text-decoration: none;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .navbar-links a {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .navbar-links a:hover { opacity: 0.7; }
-
-    /* ── Sticky Countdown ── */
+    /* ── Countdown Bar (in-flow, not sticky) ── */
     .countdown-bar {
-      position: sticky;
-      top: 0;
-      z-index: 999;
       background: var(--color-black);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 12px 24px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .countdown-label {
       font-family: var(--font-body);
-      font-size: 10px;
+      font-size: clamp(8px, 1.5vw, 10px);
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -123,7 +64,8 @@
 
     .countdown-timer {
       display: flex;
-      gap: 20px;
+      gap: 16px;
+      align-items: center;
     }
 
     .countdown-unit {
@@ -132,7 +74,7 @@
 
     .countdown-number {
       font-family: var(--font-body);
-      font-size: 18px;
+      font-size: clamp(14px, 2.5vw, 18px);
       font-weight: 600;
       color: var(--color-white);
       letter-spacing: 0.05em;
@@ -141,7 +83,7 @@
 
     .countdown-unit-label {
       font-family: var(--font-body);
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -151,7 +93,7 @@
 
     .countdown-separator {
       font-family: var(--font-body);
-      font-size: 18px;
+      font-size: clamp(14px, 2.5vw, 18px);
       font-weight: 300;
       color: rgba(255,255,255,0.3);
       line-height: 1;
@@ -166,7 +108,8 @@
       color: var(--color-black);
       background: var(--color-white);
       border: none;
-      padding: 8px 20px;
+      padding: 12px 20px;
+      min-height: 48px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -179,7 +122,7 @@
     .hero {
       position: relative;
       height: 100vh;
-      min-height: 700px;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -225,7 +168,7 @@
 
     .hero-capsule-label {
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: clamp(9px, 1.5vw, 11px);
       font-weight: 500;
       letter-spacing: 0.3em;
       text-transform: uppercase;
@@ -235,7 +178,7 @@
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(3rem, 7vw, 6rem);
+      font-size: clamp(2.5rem, 7vw, 6rem);
       font-weight: 400;
       font-style: italic;
       line-height: 1.05;
@@ -246,17 +189,17 @@
 
     .hero-sub {
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: clamp(10px, 1.5vw, 12px);
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.7);
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
     .hero-drop-info {
       font-family: var(--font-body);
-      font-size: 13px;
+      font-size: clamp(12px, 1.8vw, 13px);
       font-weight: 300;
       line-height: 1.8;
       color: var(--color-warm-gray);
@@ -280,6 +223,7 @@
       background: var(--color-white);
       border: 1px solid var(--color-white);
       padding: 16px 48px;
+      min-height: 48px;
       text-decoration: none;
       transition: all 0.4s ease;
       cursor: pointer;
@@ -301,6 +245,7 @@
       background: var(--color-black);
       border: 1px solid var(--color-black);
       padding: 16px 48px;
+      min-height: 48px;
       text-decoration: none;
       transition: all 0.4s ease;
       cursor: pointer;
@@ -322,6 +267,7 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.4);
       padding: 16px 48px;
+      min-height: 48px;
       text-decoration: none;
       transition: all 0.4s ease;
       cursor: pointer;
@@ -357,7 +303,7 @@
 
     /* ── Capsule Story Section ── */
     .story-section {
-      padding: 120px 48px;
+      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
       background: var(--color-white);
     }
 
@@ -393,7 +339,7 @@
 
     .story-body p {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: clamp(13px, 1.8vw, 14px);
       font-weight: 300;
       line-height: 2;
       color: var(--color-dark-gray);
@@ -404,22 +350,15 @@
       margin-bottom: 0;
     }
 
-    .story-divider {
-      width: 40px;
-      height: 1px;
-      background: var(--color-warm-gray);
-      margin: 48px auto;
-    }
-
     /* ── Fabric Palette ── */
     .palette-section {
-      padding: 100px 48px;
+      padding: clamp(80px, 10vw, 100px) clamp(24px, 5vw, 48px);
       background: var(--color-off-white);
     }
 
     .palette-header {
       text-align: center;
-      margin-bottom: 64px;
+      margin-bottom: 48px;
     }
 
     .palette-header .eyebrow {
@@ -434,7 +373,7 @@
 
     .palette-header h2 {
       font-family: var(--font-heading);
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
       font-weight: 400;
       color: var(--color-black);
       line-height: 1.2;
@@ -443,26 +382,20 @@
     .palette-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 0;
-      max-width: 980px;
+      gap: 8px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
     .palette-swatch {
-      aspect-ratio: 3/4;
+      aspect-ratio: 3/5;
       position: relative;
       overflow: hidden;
-      cursor: default;
     }
 
     .palette-swatch-inner {
       width: 100%;
       height: 100%;
-      transition: transform 0.6s ease;
-    }
-
-    .palette-swatch:hover .palette-swatch-inner {
-      transform: scale(1.05);
     }
 
     .palette-swatch-label {
@@ -470,97 +403,20 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 12px 8px;
+      padding: 8px 4px;
       text-align: center;
       font-family: var(--font-body);
       font-size: 8px;
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .palette-swatch:hover .palette-swatch-label {
-      opacity: 1;
-    }
-
-    .palette-note {
-      text-align: center;
-      margin-top: 40px;
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      color: var(--color-warm-gray);
-      font-style: italic;
-    }
-
-    /* ── Gallery ── */
-    .gallery-section {
-      padding: 0;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 2px;
-    }
-
-    .gallery-cell {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .gallery-cell-tall { grid-row: span 2; }
-    .gallery-cell-wide { grid-column: span 2; }
-
-    .gallery-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 6s ease;
-    }
-
-    .gallery-cell:hover .gallery-img {
-      transform: scale(1.03);
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-body);
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.2);
-    }
-
-    .gallery-cell:nth-child(1) .gallery-placeholder { background: #d4c5b3; min-height: 640px; }
-    .gallery-cell:nth-child(2) .gallery-placeholder { background: #e8e3dc; }
-    .gallery-cell:nth-child(3) .gallery-placeholder { background: #2a2725; color: rgba(255,255,255,0.15); }
-    .gallery-cell:nth-child(4) .gallery-placeholder { background: #c4d0dc; }
-    .gallery-cell:nth-child(5) .gallery-placeholder { background: #d8e2ec; min-height: 400px; }
-
-    .gallery-cta-block {
-      text-align: center;
-      padding: 80px 48px;
-      background: var(--color-off-white);
     }
 
     /* ── Drop Info Section ── */
     .drop-section {
-      padding: 120px 48px;
+      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
       background: var(--color-black);
       text-align: center;
-      position: relative;
     }
 
     .drop-section .eyebrow {
@@ -585,8 +441,9 @@
     .drop-timeline {
       display: flex;
       justify-content: center;
-      gap: 80px;
+      gap: clamp(40px, 8vw, 80px);
       margin-bottom: 56px;
+      flex-wrap: wrap;
     }
 
     .drop-time {
@@ -595,7 +452,7 @@
 
     .drop-time-hour {
       font-family: var(--font-heading);
-      font-size: 3rem;
+      font-size: clamp(2.2rem, 5vw, 3rem);
       font-weight: 400;
       color: var(--color-white);
       line-height: 1;
@@ -628,7 +485,7 @@
 
     .drop-section .section-desc {
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: clamp(13px, 1.8vw, 14px);
       font-weight: 300;
       line-height: 1.8;
       color: var(--color-warm-gray);
@@ -647,7 +504,7 @@
 
     /* ── Family Benefits ── */
     .benefits-section {
-      padding: 120px 48px;
+      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 48px);
       background: var(--color-cream);
       text-align: center;
     }
@@ -664,7 +521,7 @@
 
     .benefits-section h2 {
       font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(1.5rem, 3vw, 2.8rem);
       font-weight: 400;
       color: var(--color-black);
       margin-bottom: 56px;
@@ -711,7 +568,7 @@
 
     .benefit-item p {
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: clamp(11px, 1.5vw, 12px);
       font-weight: 300;
       line-height: 1.7;
       color: var(--color-dark-gray);
@@ -719,7 +576,7 @@
 
     /* ── Footer ── */
     .footer {
-      padding: 48px;
+      padding: clamp(32px, 5vw, 48px);
       background: var(--color-black);
       text-align: center;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -743,26 +600,6 @@
       margin-bottom: 32px;
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 32px;
-    }
-
-    .footer-links a {
-      font-family: var(--font-body);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-warm-gray);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover { color: var(--color-white); }
-
     .footer-copy {
       font-family: var(--font-body);
       font-size: 10px;
@@ -773,43 +610,45 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      .navbar { padding: 16px 24px; }
-      .navbar-links { display: none; }
-
       .countdown-bar {
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 10px 16px;
+        gap: 8px;
+        padding: 12px 16px;
+        justify-content: center;
       }
 
-      .countdown-label { font-size: 8px; width: 100%; }
-      .countdown-timer { gap: 12px; }
-      .countdown-number { font-size: 14px; }
-      .countdown-cta { padding: 6px 16px; font-size: 8px; }
+      .countdown-label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 4px;
+      }
 
-      .story-section,
-      .palette-section { padding: 80px 24px; }
+      .countdown-timer { gap: 10px; }
+
+      .countdown-cta {
+        width: 100%;
+        margin-top: 8px;
+        padding: 14px 20px;
+      }
+
+      .hero { min-height: 500px; }
+      .hero-scroll { display: none; }
 
       .palette-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        max-width: 100%;
       }
 
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+      .palette-swatch {
+        aspect-ratio: 1/1;
       }
-      .gallery-cell-tall { grid-row: span 1; }
-      .gallery-cell-wide { grid-column: span 2; }
-      .gallery-cell:nth-child(1) .gallery-placeholder { min-height: 350px; }
 
-      .gallery-cta-block { padding: 60px 24px; }
-
-      .drop-section,
-      .benefits-section { padding: 80px 24px; }
+      .palette-swatch-label {
+        opacity: 1;
+      }
 
       .drop-timeline {
-        flex-direction: column;
-        gap: 32px;
-        align-items: center;
+        gap: 24px;
       }
 
       .drop-divider {
@@ -818,23 +657,26 @@
       }
 
       .benefits-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .hero-content { padding: 0 20px; }
-      .footer-links { flex-direction: column; gap: 16px; }
+      .btn-cta,
+      .btn-cta-dark,
+      .btn-outline-light {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar">
-    "Sapore di Sale" drops June 16 — Early Access for Members at 6PM
-  </div>
-
-  <!-- Sticky Countdown -->
+  <!-- Countdown Bar -->
   <div class="countdown-bar">
     <span class="countdown-label">Drop in</span>
     <div class="countdown-timer">
@@ -861,23 +703,11 @@
     <button class="countdown-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
   </div>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="https://animastudios.it" class="navbar-logo">Anima Studios</a>
-    <ul class="navbar-links">
-      <li><a href="https://animastudios.it">Home</a></li>
-      <li><a href="https://animastudios.it/collections/all">Shop</a></li>
-      <li><a href="https://animastudios.it/pages/about-us">About Us</a></li>
-      <li><a href="https://animastudios.it/pages/contacts">Contacts</a></li>
-    </ul>
-  </nav>
-
   <!-- Hero with background slideshow -->
   <section class="hero">
     <div class="hero-slideshow">
       <!--
-        ISTRUZIONI: Sostituisci i URL sotto con le immagini caricate su Shopify CDN.
-        Usa Settings > Files per caricarle e copia l'URL.
+        Sostituisci i URL con le immagini caricate su Shopify (Settings > Files).
         Slide 1: foto camicia fiori (flower shirt back)
         Slide 2: foto spiaggia dolce vita
       -->
@@ -957,36 +787,6 @@
         <div class="palette-swatch-label" style="color: var(--color-warm-gray);">denim</div>
       </div>
     </div>
-    <p class="palette-note">hover to reveal</p>
-  </section>
-
-  <!-- Photo Gallery -->
-  <section class="gallery-section">
-    <!--
-      GALLERY — Carica le foto su Shopify (Settings > Files).
-      Sostituisci i placeholder con <img> tags.
-    -->
-    <div class="gallery-grid">
-      <div class="gallery-cell gallery-cell-tall">
-        <div class="gallery-placeholder">—</div>
-      </div>
-      <div class="gallery-cell">
-        <div class="gallery-placeholder">—</div>
-      </div>
-      <div class="gallery-cell">
-        <div class="gallery-placeholder">—</div>
-      </div>
-      <div class="gallery-cell">
-        <div class="gallery-placeholder">—</div>
-      </div>
-      <div class="gallery-cell gallery-cell-wide">
-        <div class="gallery-placeholder">—</div>
-      </div>
-    </div>
-
-    <div class="gallery-cta-block">
-      <button class="btn-cta-dark" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
-    </div>
   </section>
 
   <!-- Drop Info Section -->
@@ -1060,19 +860,12 @@
   <footer class="footer">
     <p class="footer-logo">Anima Studios</p>
     <p class="footer-tagline">The Art of Dreams — Made in Italy</p>
-    <div class="footer-links">
-      <a href="https://animastudios.it">Home</a>
-      <a href="https://animastudios.it/collections/all">Shop</a>
-      <a href="https://animastudios.it/pages/about-us">About Us</a>
-      <a href="https://animastudios.it/pages/contacts">Contacts</a>
-    </div>
     <p class="footer-copy">&copy; 2026 Anima Studios. All rights reserved.</p>
   </footer>
 
   <!-- Countdown + Slideshow Scripts -->
   <script>
-    // Countdown to June 16, 2026 18:00 CEST (UTC+2)
-    const dropDate = new Date('2026-06-16T16:00:00Z'); // 18:00 CEST = 16:00 UTC
+    const dropDate = new Date('2026-06-16T16:00:00Z');
 
     function updateCountdown() {
       const now = new Date();
@@ -1101,7 +894,6 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Hero slideshow
     const slides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
 
