@@ -330,21 +330,23 @@
   .sds-palette-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
     gap: 8px;
     max-width: 720px;
     margin: 0 auto;
   }
 
   .sds-palette-swatch {
-    aspect-ratio: 1/1;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.12);
+    padding-bottom: 100%;
+    height: 0;
   }
 
   .sds-palette-swatch-inner {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
   }
 
   .sds-palette-swatch-label {
