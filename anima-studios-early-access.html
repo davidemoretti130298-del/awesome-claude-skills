@@ -35,8 +35,12 @@
     background-color: var(--sds-white);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    width: 100%;
-    max-width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
   }
 
   /* ── Countdown Bar (in-flow) ── */
@@ -552,7 +556,16 @@
       max-width: 100%;
     }
 
-    .sds-drop-timeline { gap: 24px; }
+    .sds-drop-timeline {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sds-drop-time {
+      width: 100%;
+      text-align: center;
+    }
 
     .sds-drop-divider {
       width: 40px;
