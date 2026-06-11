@@ -333,41 +333,25 @@
       letter-spacing: 0.02em;
     }
 
-    /* Klaviyo form container */
-    .klaviyo-form-container {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    /* Fallback inline form if Klaviyo doesn't load */
-    .fallback-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 420px;
-      margin: 0 auto;
-    }
-
-    .fallback-form input[type="email"] {
+    /* Klaviyo trigger button */
+    .klaviyo-trigger-btn {
+      display: inline-block;
       font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      padding: 16px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 56px;
+      background: var(--color-white);
+      color: var(--color-black);
+      border: 1px solid var(--color-white);
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .klaviyo-trigger-btn:hover {
       background: transparent;
       color: var(--color-white);
-      text-align: center;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    .fallback-form input[type="email"]::placeholder {
-      color: var(--color-warm-gray);
-    }
-
-    .fallback-form input[type="email"]:focus {
-      border-color: rgba(255, 255, 255, 0.6);
     }
 
     .fallback-form button {
@@ -609,7 +593,7 @@
         Iscriviti per ricevere l'accesso anticipato alla prossima collezione Anima Studios.<br>
         Prima di chiunque altro. Direttamente nella tua inbox.
       </p>
-      <a href="#signup" class="btn-outline">Iscriviti Ora</a>
+      <button class="btn-outline klaviyo_form_trigger_hero" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Iscriviti Ora</button>
     </div>
     <div class="hero-scroll"><span></span></div>
   </section>
@@ -674,19 +658,16 @@
       Inserisci la tua email per essere tra i primi a scoprire "Flower Therapy" e le prossime collezioni Anima Studios.
     </p>
 
-    <!-- Klaviyo Embedded Form -->
-    <div class="klaviyo-form-container">
-      <div class="klaviyo-form-Rqt3UD"></div>
-    </div>
+    <!-- Klaviyo Popup Trigger Button -->
+    <button class="klaviyo_form_trigger klaviyo-trigger-btn">Iscriviti Ora</button>
 
-    <!-- Fallback form (visible only if Klaviyo doesn't render) -->
-    <noscript>
-      <form class="fallback-form" action="https://manage.kmail-lists.com/subscriptions/subscribe" method="POST">
-        <input type="hidden" name="g" value="Rqt3UD">
-        <input type="email" name="email" placeholder="Il tuo indirizzo email" required>
-        <button type="submit">Iscriviti</button>
-      </form>
-    </noscript>
+    <!-- Klaviyo trigger script: opens the form as popup on click -->
+    <script type="text/javascript">
+      document.querySelector('.klaviyo_form_trigger').addEventListener('click', function() {
+        window._klOnsite = window._klOnsite || [];
+        window._klOnsite.push(['openForm', 'Rqt3UD']);
+      });
+    </script>
 
     <p class="signup-note">Nessuno spam. Solo anteprime esclusive e accesso prioritario.</p>
   </section>
