@@ -196,10 +196,10 @@
 
   .sds-hero-drop-info {
     font-family: var(--sds-body);
-    font-size: clamp(12px, 1.8vw, 13px);
-    font-weight: 300;
+    font-size: clamp(13px, 1.8vw, 15px);
+    font-weight: 400;
     line-height: 1.8;
-    color: var(--sds-warm-gray);
+    color: rgba(255,255,255,0.8);
     margin-bottom: 40px;
   }
 
@@ -328,9 +328,8 @@
   }
 
   .sds-palette-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px;
     max-width: 720px;
     margin: 0 auto;
@@ -341,10 +340,13 @@
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.12);
     aspect-ratio: 1 / 1 !important;
-    width: calc((100% - 16px) / 3);
+    grid-column: span 2;
     margin: 0 !important;
     padding: 0 !important;
   }
+
+  .sds-palette-swatch:nth-child(4) { grid-column: 2 / span 2; }
+  .sds-palette-swatch:nth-child(6) { grid-column: 2 / span 2; }
 
   .sds-palette-swatch-inner {
     position: absolute;
@@ -564,8 +566,8 @@
       height: 70vh;
     }
 
-    .sds-palette-swatch {
-      width: calc((100% - 16px) / 3);
+    .sds-palette-grid {
+      max-width: 100%;
     }
 
     .sds-drop-timeline {
@@ -643,10 +645,10 @@
     <div class="sds-hero-content">
       <p class="sds-hero-capsule-label">Summer Capsule 26</p>
       <h1 class="sds-hero-title">"Sapore di Sale"</h1>
-      <p class="sds-hero-sub">Anima Studios — The Art of Dreams</p>
+      <p class="sds-hero-sub">Anima Studios | The Art of Dreams</p>
       <p class="sds-hero-drop-info">
         il drop è <strong>martedì 16 giugno</strong>.<br>
-        family members alle <strong>18:00</strong> — tutti gli altri alle 19:00.
+        family members alle <strong>18:00</strong>, tutti gli altri alle 19:00.
       </p>
       <button class="sds-btn-cta" onclick="window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'Rqt3UD']);">Get Early Access</button>
     </div>
@@ -659,13 +661,13 @@
       <h2>"Sapore di Sale"</h2>
       <div class="sds-story-body">
         <p>
-          Lunghe giornate al sole, cene sotto le stelle, aperitivi vista mare. Giri in Vespa, profumo di limone e pino marittimo, il calore delle notti in piazza. "Sapore di Sale" è il guardaroba di quel momento lì — quando stacchi davvero e il tempo si misura in tramonti.
+          Lunghe giornate al sole, cene sotto le stelle, aperitivi vista mare. Giri in Vespa, profumo di limone e pino marittimo, il calore delle notti in piazza. "Sapore di Sale" è il guardaroba di quel momento lì, quando stacchi davvero e il tempo si misura in tramonti.
         </p>
         <p>
-          Il lino è il cuore della capsule. Fibra naturale che vibra a 5000 Hz — la frequenza più alta tra tutti i tessuti. Studi sul benessere la associano a un effetto rigenerante sul corpo. A noi basta sapere che sulla pelle d'estate non c'è niente di meglio.
+          Il lino è il cuore della capsule. Fibra naturale che vibra a 5000 Hz, la frequenza più alta tra tutti i tessuti. Studi sul benessere la associano a un effetto rigenerante sul corpo. A noi basta sapere che sulla pelle d'estate non c'è niente di meglio.
         </p>
         <p>
-          Il seersucker è l'altro protagonista. Si ottiene intrecciando fili a tensioni diverse — tesi e lenti alternati — che creano quella texture arricciata inconfondibile. Non si stira, non resta attaccato alla pelle, lascia passare l'aria. Il tessuto perfetto per chi vive l'estate senza pensarci troppo.
+          Il seersucker è l'altro protagonista. Si ottiene intrecciando fili a tensioni diverse, tesi e lenti alternati, che creano quella texture arricciata inconfondibile. Non si stira, non resta attaccato alla pelle, lascia passare l'aria. Il tessuto perfetto per chi vive l'estate senza pensarci troppo.
         </p>
         <p>
           Il denim chiude la capsule. Lavaggi sabbiati, trattamenti che danno a ogni pezzo un carattere già vissuto. Come se l'avessi sempre avuto.
@@ -722,7 +724,7 @@
       <div class="sds-drop-time">
         <div class="sds-drop-time-hour">18:00</div>
         <div class="sds-drop-time-label">Family Members</div>
-        <div class="sds-drop-time-sub">early access — 1 ora prima</div>
+        <div class="sds-drop-time-sub">early access, 1 ora prima</div>
       </div>
       <div class="sds-drop-divider"></div>
       <div class="sds-drop-time">
@@ -745,7 +747,7 @@
   <section class="sds-benefits-section">
     <p class="sds-benefits-eyebrow">Why Join the Family</p>
     <h2 class="sds-benefits-title">family members get early access</h2>
-    <p class="sds-benefits-subtitle">— and that's not all</p>
+    <p class="sds-benefits-subtitle">and that's not all</p>
 
     <div class="sds-benefits-grid">
       <div class="sds-benefit-item">
